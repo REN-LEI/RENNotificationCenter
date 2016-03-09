@@ -6,7 +6,8 @@ RENNotificationCenter是一款非常小巧轻量的基于`NSNotificationCenter`�
 - 利用iOS动态性实现自动释放通知，当持有类销毁时，自动释放注册通知 
 - 使用blcok的方式作为事件触发的回调，简洁明了
 - 支持系统的所有通知，并转发userInfo字段
-## 例子
+
+## 例
 ```
 [self.notification rl_subscribe:UIApplicationDidEnterBackgroundNotification block:^(RENEvent *event) {
 NSLog(@"eventName = %@",event.name);
