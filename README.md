@@ -25,7 +25,7 @@ NSLog(@"eventName = %@",event.name);
 * 在 `Podfile` 里添加以下依赖：
 
 ```
-pod 'RENNotificationCenter', '~> 0.0.1'
+pod 'RENNotificationCenter', '~> 0.0.2'
 ```
 * 运行 `pod install` 
 
