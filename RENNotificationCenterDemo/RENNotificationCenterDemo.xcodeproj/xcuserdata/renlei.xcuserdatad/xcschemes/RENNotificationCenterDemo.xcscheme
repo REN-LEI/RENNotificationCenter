@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "702261311C7D933700F43DC0"
-               BuildableName = "RENNotificationCenterDemoTests.xctest"
-               BlueprintName = "RENNotificationCenterDemoTests"
+               BlueprintIdentifier = "7022613C1C7D933700F43DC0"
+               BuildableName = "RENNotificationCenterDemoUITests.xctest"
+               BlueprintName = "RENNotificationCenterDemoUITests"
                ReferencedContainer = "container:RENNotificationCenterDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7022613C1C7D933700F43DC0"
-               BuildableName = "RENNotificationCenterDemoUITests.xctest"
-               BlueprintName = "RENNotificationCenterDemoUITests"
+               BlueprintIdentifier = "702261311C7D933700F43DC0"
+               BuildableName = "RENNotificationCenterDemoTests.xctest"
+               BlueprintName = "RENNotificationCenterDemoTests"
                ReferencedContainer = "container:RENNotificationCenterDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>

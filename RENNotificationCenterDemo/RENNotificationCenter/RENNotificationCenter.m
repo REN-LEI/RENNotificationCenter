@@ -9,8 +9,6 @@
 #import "RENNotificationCenter.h"
 #import <objc/runtime.h>
 
-static NSString *const rl_userInfoKey = @"rl_userInfoKey";
-
 @interface RENSubscribeObject : NSObject
 
 + (instancetype)rl_subscribe:(NSString *)name block:(RENNotificationBlock)block;
@@ -30,8 +28,7 @@ static NSString *const rl_userInfoKey = @"rl_userInfoKey";
 }
 
 - (void)rl_subscribeCallbackObject:(NSNotification *)not {
-    id userInfo = not.userInfo[rl_userInfoKey];
-    RENEvent *event = [[RENEvent alloc] initWithName:not.name object:not.object userInfo:userInfo];
+    RENEvent *event = [[RENEvent alloc] initWithName:not.name object:not.object userInfo:not.userInfo];
     _block(event);
 }
 
@@ -75,8 +72,7 @@ static NSString *const rl_userInfoKey = @"rl_userInfoKey";
 }
 
 - (void)rl_publish:(NSString *)name userInfo:(id)userInfo {
-    id obj = @{rl_userInfoKey:userInfo};
-    [[NSNotificationCenter defaultCenter] postNotificationName:name object:_object userInfo:obj];
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:_object userInfo:userInfo];
 }
 
 - (void)rl_unsubscribe:(NSString *)eventName {
