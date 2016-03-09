@@ -28,6 +28,7 @@ NSLog(@"eventName = %@",event.name);
 pod 'RENNotificationCenter', '~> 0.0.1'
 ```
 * 运行 `pod install` 
+
 ###源文件
 
 直接导入源文件。
