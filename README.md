@@ -10,12 +10,14 @@ RENNotificationCenter是一款非常小巧轻量的基于`NSNotificationCenter`�
 ## 例
 ```
 [self.notification rl_subscribe:UIApplicationDidEnterBackgroundNotification block:^(RENEvent *event) {
-NSLog(@"eventName = %@",event.name);
+    NSLog(@"eventName = %@",event.name);
 }];
 
 [self.notification rl_subscribe:@"CustomEventName" block:^(RENEvent *event) {
-NSLog(@"eventName = %@",event.name);
+    NSLog(@"eventName = %@",event.name);
 }];
+
+[self.notification rl_publish:@"CustomEventName" userInfo:@"hello"];
 
 [self.notification rl_unsubscribe:@"CustomEventName"];
 ```
