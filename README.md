@@ -28,7 +28,7 @@ RENNotificationCenter是一款非常小巧轻量的基于`NSNotificationCenter`�
 * 在 `Podfile` 里添加以下依赖：
 
 ```
-pod 'RENNotificationCenter', '~> 0.0.2'
+pod 'RENNotificationCenter', '~> 0.0.4'
 ```
 * 运行 `pod install` 
 
