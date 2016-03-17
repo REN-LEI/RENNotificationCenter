@@ -15,7 +15,6 @@
 		7022612C1C7D933700F43DC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7022612A1C7D933700F43DC0 /* LaunchScreen.storyboard */; };
 		702261371C7D933700F43DC0 /* RENNotificationCenterDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 702261361C7D933700F43DC0 /* RENNotificationCenterDemoTests.m */; };
 		702261421C7D933700F43DC0 /* RENNotificationCenterDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 702261411C7D933700F43DC0 /* RENNotificationCenterDemoUITests.m */; };
-		702261691C7D9CBD00F43DC0 /* RENNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 702261681C7D9CBD00F43DC0 /* RENNotificationCenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +51,8 @@
 		7022613D1C7D933700F43DC0 /* RENNotificationCenterDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RENNotificationCenterDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		702261411C7D933700F43DC0 /* RENNotificationCenterDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RENNotificationCenterDemoUITests.m; sourceTree = "<group>"; };
 		702261431C7D933700F43DC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		702261671C7D9CBD00F43DC0 /* RENNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RENNotificationCenter.h; sourceTree = "<group>"; };
-		702261681C7D9CBD00F43DC0 /* RENNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RENNotificationCenter.m; sourceTree = "<group>"; };
+		70AE3E691C9ABA99003B72B1 /* RENNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RENNotificationCenter.h; sourceTree = "<group>"; };
+		70AE3E6A1C9ABA99003B72B1 /* RENNotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RENNotificationCenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +83,7 @@
 		702261101C7D933700F43DC0 = {
 			isa = PBXGroup;
 			children = (
-				702261661C7D9CBD00F43DC0 /* RENNotificationCenter */,
+				70AE3E681C9ABA99003B72B1 /* RENNotificationCenter */,
 				7022611B1C7D933700F43DC0 /* RENNotificationCenterDemo */,
 				702261351C7D933700F43DC0 /* RENNotificationCenterDemoTests */,
 				702261401C7D933700F43DC0 /* RENNotificationCenterDemoUITests */,
@@ -144,13 +143,14 @@
 			path = RENNotificationCenterDemoUITests;
 			sourceTree = "<group>";
 		};
-		702261661C7D9CBD00F43DC0 /* RENNotificationCenter */ = {
+		70AE3E681C9ABA99003B72B1 /* RENNotificationCenter */ = {
 			isa = PBXGroup;
 			children = (
-				702261671C7D9CBD00F43DC0 /* RENNotificationCenter.h */,
-				702261681C7D9CBD00F43DC0 /* RENNotificationCenter.m */,
+				70AE3E691C9ABA99003B72B1 /* RENNotificationCenter.h */,
+				70AE3E6A1C9ABA99003B72B1 /* RENNotificationCenter.m */,
 			);
-			path = RENNotificationCenter;
+			name = RENNotificationCenter;
+			path = ../RENNotificationCenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +286,6 @@
 				702261241C7D933700F43DC0 /* ViewController.m in Sources */,
 				702261211C7D933700F43DC0 /* AppDelegate.m in Sources */,
 				7022611E1C7D933700F43DC0 /* main.m in Sources */,
-				702261691C7D9CBD00F43DC0 /* RENNotificationCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

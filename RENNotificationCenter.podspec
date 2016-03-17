@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'RENNotificationCenter'
-s.version      = '0.0.3.1'
+s.version      = '0.0.2'
 s.summary      = 'An easy way to use notification'
 s.homepage     = 'https://github.com/REN-LEI/RENNotificationCenter'
 s.license      = 'MIT'
