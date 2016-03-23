@@ -22,12 +22,25 @@
     [self.notification rl_subscribe:UIApplicationDidBecomeActiveNotification block:^(RENEvent *event)
     {
         NSLog(@"event = %@",event.name);
+        NSLog(@"=== %@",event.userInfo);
     }];
     
     [self.notification rl_subscribe:UIApplicationWillResignActiveNotification block:^(RENEvent *event)
      {
          NSLog(@"event = %@",event.name);
+         NSLog(@"=== %@",event.userInfo);
      }];
+    
+    [self.notification rl_subscribe:@"aa" block:^(RENEvent *event) {
+        NSLog(@"event = %@",event.name);
+        NSLog(@"=== %@",event.userInfo);
+    }];
+    
+    [self.notification rl_publish:@"aa" userInfo:nil];
+    
+    [self.notification rl_publish:@"aa" userInfo:@1];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

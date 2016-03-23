@@ -28,7 +28,8 @@
 }
 
 - (void)rl_subscribeCallbackObject:(NSNotification *)not {
-    RENEvent *event = [[RENEvent alloc] initWithName:not.name object:not.object userInfo:not.userInfo];
+    id obj = not.userInfo[_name]?:not.userInfo;
+    RENEvent *event = [[RENEvent alloc] initWithName:not.name object:not.object userInfo:obj];
     _block(event);
 }
 
@@ -72,7 +73,7 @@
 }
 
 - (void)rl_publish:(NSString *)name userInfo:(id)userInfo {
-    [[NSNotificationCenter defaultCenter] postNotificationName:name object:_object userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:_object userInfo:userInfo?@{name:userInfo}:nil];
 }
 
 - (void)rl_unsubscribe:(NSString *)eventName {
