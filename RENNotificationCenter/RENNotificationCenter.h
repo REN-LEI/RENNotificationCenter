@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class RENEvent;
 
-typedef void (^RENNotificationBlock)(RENEvent *event);
+typedef void (^RENNotificationBlock)(NSNotification *event);
 
 @interface RENNotificationCenter : NSObject
 
@@ -44,19 +43,6 @@ typedef void (^RENNotificationBlock)(RENEvent *event);
 
 
 @end
-
-
-
-@interface RENEvent : NSObject
-
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, strong, readonly) id object;
-@property (nonatomic, strong, readonly) id userInfo;
-
-- (instancetype)initWithName:(NSString *)name object:(id)object userInfo:(id)userInfo;
-
-@end
-
 
 
 

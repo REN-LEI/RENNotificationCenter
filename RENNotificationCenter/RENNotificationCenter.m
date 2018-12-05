@@ -11,30 +11,30 @@
 
 @interface RENSubscribeObject : NSObject
 
+@property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, copy) RENNotificationBlock block;
+
 + (instancetype)rl_subscribe:(NSString *)name block:(RENNotificationBlock)block;
 
 @end
 
-@implementation RENSubscribeObject {
-    NSString *_name;
-    RENNotificationBlock _block;
-}
+@implementation RENSubscribeObject
+
 + (instancetype)rl_subscribe:(NSString *)name block:(RENNotificationBlock)block {
     RENSubscribeObject *obj = [[RENSubscribeObject alloc] init];
-    obj->_name = name;
-    obj->_block = [block copy];
     [[NSNotificationCenter defaultCenter] addObserver:obj selector:@selector(rl_subscribeCallbackObject:) name:name object:nil];
+    obj.name = name;
+    obj.block = [block copy];
     return obj;
 }
 
-- (void)rl_subscribeCallbackObject:(NSNotification *)not {
-    id obj = not.userInfo[_name]?:not.userInfo;
-    RENEvent *event = [[RENEvent alloc] initWithName:not.name object:not.object userInfo:obj];
-    _block(event);
+- (void)rl_subscribeCallbackObject:(NSNotification *)note {
+    self.block(note);
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:_name object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:self.name object:nil];
 }
 
 @end
@@ -56,8 +56,8 @@
 
 - (instancetype)initWithObserver:(id)obj {
     if (self = [super init]) {
-        _subscribeInfosMap = [[NSMutableDictionary alloc] init];
-        _object = obj;
+        self.subscribeInfosMap = [[NSMutableDictionary alloc] init];
+        self.object = obj;
     }
     return self;
 }
@@ -69,11 +69,11 @@
         return;
     }
     RENSubscribeObject *object = [RENSubscribeObject rl_subscribe:name block:block];
-    [_subscribeInfosMap setObject:object forKey:name];
+    [self.subscribeInfosMap setObject:object forKey:name];
 }
 
 - (void)rl_publish:(NSString *)name userInfo:(id)userInfo {
-    [[NSNotificationCenter defaultCenter] postNotificationName:name object:_object userInfo:userInfo?@{name:userInfo}:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:self.object userInfo:userInfo];
 }
 
 - (void)rl_unsubscribe:(NSString *)eventName {
@@ -88,28 +88,12 @@
 @end
 
 
-@implementation RENEvent
-
-- (instancetype)initWithName:(NSString *)name object:(id)object userInfo:(id)userInfo {
-    
-    if (self = [super init]) {
-        _name = name;
-        _object = object;
-        _userInfo = userInfo;
-    }
-    return self;
-}
-
-@end
-
-void *RENNotificationKey;
-
 @implementation NSObject (RENNotificationCenter)
 
 - (RENNotificationCenter *)notification {
     
-    id obj = objc_getAssociatedObject(self, RENNotificationKey);
-    
+    id obj = objc_getAssociatedObject(self, _cmd);
+
     if (!obj) {
         obj = [RENNotificationCenter rl_subscribeObject:self];
         self.notification = obj;
@@ -118,15 +102,7 @@ void *RENNotificationKey;
 }
 
 - (void)setNotification:(RENNotificationCenter *)notification {
-    objc_setAssociatedObject(self, RENNotificationKey, notification, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(notification), notification, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-
-
 @end
-
-
-
-
-
-
