@@ -77,12 +77,12 @@
 }
 
 - (void)rl_unsubscribe:(NSString *)eventName {
-    [_subscribeInfosMap removeObjectForKey:eventName];
+    [self.subscribeInfosMap removeObjectForKey:eventName];
 }
 
 
 - (void)rl_unsubscribeAll {
-    [_subscribeInfosMap removeAllObjects];
+    [self.subscribeInfosMap removeAllObjects];
 }
 
 @end
